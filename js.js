@@ -4,12 +4,11 @@ var snake = document.getElementById("huve");
 var collision = false;
 var delay = 1000;
 
-do {
-
+/*do {
     setTimeout(function() {
         snake.style.transform += "translateX("+ (move) + "px)";
     }, delay);
-} while (collision===false);
+} while (collision===false);*/
 
 document.documentElement.addEventListener('keydown',function(press){
 
@@ -21,12 +20,9 @@ document.documentElement.addEventListener('keydown',function(press){
             break;
 
         case 68:
-            do {
 
-                setTimeout(function() {
                     snake.style.transform += "translateX("+ (move) + "px)";
-                }, delay);
-            } while (collision===false);
+
             break;
     }
 
