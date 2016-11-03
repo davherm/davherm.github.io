@@ -8,9 +8,9 @@
 <body>
 <?xml version="1.0" standalone="no"?>
 
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="600" height="500" onload="Init()">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" onload="Init()">
     <title>Snake</title>
-    <script type="text/ecmascript">
+    <script type="text/ecmascript" src="js.js" >
         <![CDATA[
         var svgNS = "http://www.w3.org/2000/svg";
         var xlinkNS = "http://www.w3.org/1999/xlink";
@@ -85,7 +85,7 @@
             ThisDir='S';
         }
 
-        function MoveFood()
+        function MoveFood() //placera maten slumpat inom svg-ramen
         {
             var PathStr=Snake.join(' ');
             PathStr+=' ';
@@ -104,7 +104,7 @@
             {
                 if(!Paused)
                 {
-                    if((new Date()).getTime()-LastUpdate>50)
+                    if((new Date()).getTime()-LastUpdate>50) //hur fort ormen åker, 50ms uppdatering
                     {
                         Move();
                         LastUpdate=(new Date()).getTime();
@@ -119,11 +119,11 @@
             }
         }
 
-        function Move()
+        function Move()//här ändrar man de flesta av snakes attributer ex. längd, riktning och position
         {
             CurrentDir=ThisDir;
 
-            var MyAngle=0;
+            var MyAngle=0; //börja med att peka neråt, SOUTH(S)
             if(ThisDir=='N')
             {
                 HeadY=HeadY-10;
@@ -151,8 +151,10 @@
             PathStr+=HeadStr;
             PathStr+=' ';
 
-
-            if(MoveCount<10)
+            if(HeadX==FoodX && HeadY==FoodY) { //när huvudet kolliderar med maten så kommer snake bli längre
+                MoveCount=MoveCount+10^4;
+            }
+            else if(MoveCount<10^4) //10000 är en symbolisk siffra
             {
                 Snake.pop();
                 MoveCount++;
@@ -165,7 +167,7 @@
 
             Snake.unshift(HeadStr);
 
-            if(HeadX<0 || HeadX>400 || HeadY<0 || HeadY>300 || PathStr.indexOf('L'+HeadStr+' ')>-1)
+            if(HeadX<0 || HeadX>400 || HeadY<0 || HeadY>300 || PathStr.indexOf('L'+HeadStr+' ')>-1) //game over om snake har åkt in i en vägg eller sig själv
             {
                 GameOver=true;
                 return;
@@ -174,39 +176,39 @@
             Player.setAttribute('d',PathStr);
             Head.setAttribute('transform','translate('+HeadX+','+HeadY+') rotate('+MyAngle+',0,0)');
 
-            if(HeadX==FoodX && HeadY==FoodY)
+            if(HeadX==FoodX && HeadY==FoodY) //öka poäng med 1 om huvudet har åkt in i en matbit
             {
                 MoveFood();
-                Score=Score+ThisLevel;
+                Score++;
                 ScoreBoard.nodeValue='Score: '+Score;
             }
         }
 
-        function KeyPress(evt)
+        function KeyPress(evt)//Hindrar snake från att kunna göra 180graders sväng
         {
-            if(evt.keyCode==37 && CurrentDir!='E') // West
+            if(evt.keyCode==37 && CurrentDir!='E') // 37=West
             {
                 evt.preventDefault();
                 ThisDir='W';
             }
-            else if(evt.keyCode==38 && CurrentDir!='S') // North
+            else if(evt.keyCode==38 && CurrentDir!='S') // 38=North
             {
                 evt.preventDefault();
                 ThisDir='N';
             }
-            else if(evt.keyCode==39 && CurrentDir!='W') // East
+            else if(evt.keyCode==39 && CurrentDir!='W') // 39=East
             {
                 evt.preventDefault();
                 ThisDir='E';
             }
-            else if(evt.keyCode==40 && CurrentDir!='N') // South
+            else if(evt.keyCode==40 && CurrentDir!='N') // 40=South
             {
                 evt.preventDefault();
                 ThisDir='S';
             }
             else if(evt.keyCode==80) // Pause
             {
-                evt.preventDefault;
+                evt.preventDefault();
                 if(!Paused)
                 {
                     Paused=true;
@@ -218,7 +220,7 @@
                     Splash.setAttribute('visibility','hidden');
                 }
             }
-            else if(evt.keyCode==13 && (GameOver || Paused))  // enter - newgame
+            else if(evt.keyCode==13 && (GameOver || Paused))  // 13=enter - starta nytt spel eller forsätt där spelaren pausat
             {
                 evt.preventDefault();
                 if(Paused)
@@ -231,31 +233,32 @@
             }
         }
 
-        document.documentElement.addEventListener("keydown",KeyPress,false)
+        document.documentElement.addEventListener("keydown",KeyPress,false)();
 
         ]]>
     </script>
 
     <g transform="translate(50,50)">
 
-        <rect id="board" x="-4" y="-4" width="408" height="308" rx="2" ry="2" fill="#9999ff" stroke="none" stroke-width="3" />
+        <rect id="board" x="-4" y="-4" width="408" height="308" rx="2" ry="2" fill="#9999ff" stroke="none" stroke-width="3" ></rect>
 
-        <circle id="Food" cx="-100" cy="-100" r="6" stroke="none" fill="#c00"/>
+        <circle id="Food" cx="-100" cy="-100" r="6" stroke="none" fill="#c00"></circle>
 
-        <path id="Player" style="fill:none;stroke:#090;stroke-width:8;stroke-linejoin:round;stroke-linecap:round;" d="M 10,10  L10,40" />
+        <path id="Player" style="fill:none;stroke:#090;stroke-width:8;stroke-linejoin:round;stroke-linecap:round;" d="M 10,10  L10,40" ></path>
 
-        <g id="Head" transform="translate(10,40)">
-            <ellipse cx="0" cy="0" rx="7" ry="10" fill="#090"/>
-            <ellipse cx="-3" cy="0" rx="3" ry="4" fill="#fff"/>
-            <ellipse cx="3" cy="0" rx="3" ry="4" fill="#fff"/>
-            <circle cx="-3" cy="2" r="2" fill="#000"/>
-            <circle cx="3" cy="2" r="2" fill="#000"/>
+        <g id="Head" transform="translate(10,40)"> //huvudet med sina ögon och pupiller
+            <ellipse cx="0" cy="0" rx="7" ry="10" fill="#090"></ellipse>
+            <ellipse cx="-3" cy="0" rx="3" ry="4" fill="#fff"></ellipse>
+            <ellipse cx="3" cy="0" rx="3" ry="4" fill="#fff"></ellipse>
+            <circle cx="-3" cy="2" r="2" fill="#000"></circle>
+            <circle cx="3" cy="2" r="2" fill="#000"></circle>
         </g>
 
-        <text id="ScoreBoard" x="0" y="350" font-family="sans-serif" font-size="40" font-weight="bold" fill="#000">Score: 0</text>
+        <text id="ScoreBoard" x="0" y="350" font-family="sans-serif" font-size="40" font-weight="bold" fill="#000">Score: 0</text> //poängräknaren
+        <text id="highscore" x="0" y="400" font-family="sans-serif" font-size="18" font-weight="bold" >Mitt highscore är 27, klå det ;) ;)</text>
 
-        <g id="Splash" visibility="visible" font-family="sans-serif" font-weight="bold">
-            <rect x="50" y="50" width="300" height="200" rx="5" ry="5" fill="#ffffff" fill-opacity="0.7" stroke="none" stroke-width="3" />
+        <g id="Splash" visibility="visible" font-family="sans-serif" font-weight="bold"> //splash-skärmen, pause/start/gameover
+            <rect x="50" y="50" width="300" height="200" rx="5" ry="5" fill="#ffffff" fill-opacity="0.7" stroke="none" stroke-width="3"></rect>
             <text id="Text1" x="90" y="130" font-size="40" fill="#c3c"> </text>
             <text id="Text2" x="95" y="180" font-size="20" fill="#c3c"> </text>
         </g>
@@ -264,7 +267,11 @@
 
     </svg>
 
+<footer>istället för att snake är lika långa hela tiden och bara blir längre när den äter en matbit,
+    så blir han längre och längre konstant. rumpan raderas dock alltid ut innan den ritas i alla fall förutom när huvudet äter en matbit.<br>
+    istället för att bli längre vid matbit så är det snarare att han inte blir längre när han inte är vid matbit</footer>
 
 
 </body>
 </html>
+
