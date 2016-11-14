@@ -115,7 +115,7 @@ function Move()//här ändrar man de flesta av snakes attributer ex. längd, rik
     {
         HeadY=HeadY-10;
         MyAngle=180;
-    }
+    } //asdf
     else if(ThisDir=='E')
     {
         HeadX=HeadX+10;
