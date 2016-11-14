@@ -6,7 +6,18 @@ body{
     height:600px;}
 
 svg {
-    width: 800px;
-    height: 600px;
-    border: dashed blue 4px;
+    width:960px;
+    height:600px;
+}
+
+#Player {
+    fill:none;
+    stroke:#090;
+    stroke-width:8px;
+    stroke-linejoin:round;
+    stroke-linecap:round;
+}
+
+#board {
+
 }
