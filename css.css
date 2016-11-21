@@ -1,23 +1,17 @@
-body{
-    margin:0 auto;
-    padding:0 auto;
+body {
+    margin: 0 auto;
+    padding: 0 auto;
 
-    width:960px;
-    height:600px;}
+    width: 960px;
+    height: 600px;
 
-svg {
-    width:960px;
-    height:600px;
+    font-family: sans-serif;
 }
 
 #Player {
-    fill:none;
-    stroke:#090;
-    stroke-width:8px;
+    fill: none;
+    stroke: #090;
+    stroke-width: 8px;
     stroke-linejoin:round;
-    stroke-linecap:round;
-}
-
-#board {
-
+    stroke-linecap: round;
 }
