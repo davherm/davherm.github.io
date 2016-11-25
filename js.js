@@ -14,6 +14,7 @@ var FoodX=10;
 var FoodY=10;
 var MoveCount=0;
 var ThisLevel=1;
+var Score=0;
 
 var Snake;
 var Player;
@@ -27,16 +28,14 @@ var PausedText;
 var FeedBack;
 var FeedBack2;
 
-document.documentElement.addEventListener("keydown",KeyPress,false)(); //lyssnar efter knapptryck
-
-function ShowSplash(T1,T2)  // splash-skärmen som visar när spelet startar/pausas/slutar
-{                           // T1,T2 är de olika texterna som ska visas på splash-skärmen
+function ShowSplash(T1,T2)
+{
     Text1.nodeValue=T1;
     Text2.nodeValue=T2;
-    Splash.setAttribute('visibility','visible'); //gör så att splash-skärmen inte längre är osynlig
+    Splash.setAttribute('visibility','visible');
 }
 
-function Init() //hämtar alla nödvändiga id från index.html och gör så att man kan hantera dem i js.js
+function Init()
 {
     Player=document.getElementById('Player');
     Head=document.getElementById('Head');
@@ -49,9 +48,10 @@ function Init() //hämtar alla nödvändiga id från index.html och gör så att
     ShowSplash('SNAKE','press enter to play');
 }
 
-function NewGame() // resettar värden och flyttar tillbaka ormen till sin startposition
+function NewGame()
 {
-    Splash.setAttribute('visibility','hidden'); // gör så att splash-skärmen inte syns längre
+    Splash.setAttribute('visibility','hidden');
+    Score=0;
     ScoreBoard.nodeValue='Score: 0';
     ThisLevel=1;
     ResetSnake();
@@ -72,9 +72,10 @@ function ResetSnake()
     ThisDir='S';
 }
 
-function MoveFood() // placera maten slumpat inom svg-ramen
+function MoveFood() //placera maten slumpat inom svg-ramen
 {
-
+    var PathStr=Snake.join(' ');
+    PathStr+=' ';
     while(PathStr.indexOf(FoodX+','+FoodY)>-1)
     {
         FoodX=Math.round(Math.random()*40)*10;
@@ -219,4 +220,4 @@ function KeyPress(evt)//Hindrar snake från att kunna göra 180graders sväng
     }
 }
 
-
+document.documentElement.addEventListener("keydown",KeyPress,false)();

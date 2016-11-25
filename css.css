@@ -5,7 +5,11 @@ body {
     width: 960px;
     height: 600px;
 
-    font-family: sans-serif;
+}
+
+svg {
+    width:960px;
+    height:600px;
 }
 
 #Player {
