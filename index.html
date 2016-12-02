@@ -17,25 +17,25 @@
 
         <rect id="board" x="-4" y="-4" width="408" height="308" rx="2" ry="2" fill="#9999ff" stroke="none" stroke-width="3" ></rect>
 
-        <circle id="Food" cx="-100" cy="-100" r="6" stroke="none" fill="#c00"></circle>
+        <circle id="Food" cx="-100" cy="-100" r="6" stroke="none" fill="#c00"></circle> <!-- cirkeln som ska föreställa mat(ex. äpple) -->
 
         <path id="Player" style="fill:none;
               stroke:#090;
               stroke-width:8px;
               stroke-linejoin:round;
               stroke-linecap:round;"
-              d="M 10,10  L10,40" ></path>
+              d="M 10,10  L10,40" ></path> <!-- path #player är själva ormen, d="" gör så att de startar en bit in ifrån vänster-upp hörn. strokes bestämmer färg och design på ormen, i detta fall rund och smal -->
 
-        <g id="Head" transform="translate(10,40)"> <!-- huvudet med sina ögon och pupiller, transform flyttar startpositionen i x- respektive y- led.
-                                                        det krävs mindre kod för att flytta huvudet inline eftersom att den ändras i js också. Inline är smidigare när det bara gäller startposition.-->
+        <g id="Head" transform="translate(10,40)"> <!-- huvudet med sina ögon och pupiller, transform flyttar huvudetgs startpositionen i x- respektive y- led.
+                                                    till skillnad från d="" i path så ändrar transform enbart själva huvudet som bör sitta längst fram på pathen konstant. -->
             <ellipse cx="0" cy="0" rx="7" ry="10" fill="#090"></ellipse>
             <ellipse cx="-3" cy="0" rx="3" ry="4" fill="#fff"></ellipse>
-            <ellipse cx="3" cy="0" rx="3" ry="4" fill="#fff"></ellipse>
+            <ellipse cx="3" cy="0" rx="3" ry="4" fill="#fff"></ellipse> <!-- ellipsarna är ögonen och pupillerna -->
             <circle cx="-3" cy="2" r="2" fill="#000"></circle>
             <circle cx="3" cy="2" r="2" fill="#000"></circle>
         </g>
 
-        <text id="ScoreBoard" x="0" y="350" font-size="40" fill="#000">Score: 0</text> <!-- poängräknaren -->
+        <text id="ScoreBoard" x="0" y="350" font-size="40" fill="#000">Score: 0</text> <!-- poängräknaren, som inte räknar alls egentligen -->
         <text id="highscore" x="0" y="400" font-size="18">Admin-highscore = 53</text> <!-- trevlig men ack så omständig highscore(100% manuell) -->
 
         <g id="Splash" visibility="visible"> <!--splash-skärmen, pause/start/gameover-->
@@ -50,7 +50,11 @@
 
 <!--istället för att snake är lika långa hela tiden och bara blir längre när den äter en matbit,
     så blir han längre och längre konstant. rumpan raderas dock alltid ut innan den ritas i alla fall förutom när huvudet äter en matbit.
-    istället för att bli längre vid matbit så är det snarare att han inte blir längre när han inte är vid matbit-->
+    istället för att bli längre vid matbit så är det snarare att han inte blir längre när han inte är vid matbit
+
+    inspiration eller snudd på plagiat kommer ifrån https://searchcode.com/codesearch/view/3761614/ .
+    Jag har ändrat allt som jag vill ändra, men den är fortfarande väldigt lik.
+    Det är dock ingen svår kod att förstå eller analysera och om jag själv hade skrivit från scratch så hade den fortfarande varit lik-->
 
 
 </body>

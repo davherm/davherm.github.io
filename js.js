@@ -1,12 +1,9 @@
 
-var svgNS = "http://www.w3.org/2000/svg";
-var xlinkNS = "http://www.w3.org/1999/xlink";
 
 var CurrentDir='S';
 var ThisDir='S';
 var LastUpdate=(new Date()).getTime();
 var GameOver=true;
-var Paused=false;
 var MyInterval=null;
 var HeadX=10;
 var HeadY=40;
@@ -24,11 +21,9 @@ var ScoreBoard;
 var Splash;
 var Text1;
 var Text2;
-var PausedText;
-var FeedBack;
-var FeedBack2;
 
-function ShowSplash(T1,T2)
+
+function ShowSplash(T1,T2) //splashskärmen med varierande texter
 {
     Text1.nodeValue=T1;
     Text2.nodeValue=T2;
@@ -41,14 +36,14 @@ function Init()
     Head=document.getElementById('Head');
     Food=document.getElementById('Food');
     Splash=document.getElementById("Splash");
-    Text1=document.getElementById("Text1").firstChild;
-    Text2=document.getElementById("Text2").firstChild;
+    Text1=document.getElementById("Text1");
+    Text2=document.getElementById("Text2");
     PausedText=document.getElementById("Paused");
-    ScoreBoard=document.getElementById("ScoreBoard").firstChild;
+    ScoreBoard=document.getElementById("ScoreBoard");
     ShowSplash('SNAKE','press enter to play');
 }
 
-function NewGame()
+function NewGame() //resettar poäng, position, och matbiten
 {
     Splash.setAttribute('visibility','hidden');
     Score=0;
@@ -60,10 +55,10 @@ function NewGame()
     MyInterval=setInterval("update()", 10);
 }
 
-function ResetSnake()
+function ResetSnake() //ställer tillbaka ormen vid spawnpoint
 {
     Snake=new Array();
-    Snake[0]='10,40';
+    Snake[0]='10,40'; //huvudet
     Snake[1]='10,30';
     Snake[2]='10,20';
     Snake[3]='10,10';
@@ -72,7 +67,7 @@ function ResetSnake()
     ThisDir='S';
 }
 
-function MoveFood() //placera maten slumpat inom svg-ramen
+function MoveFood() //placera maten slumpat inom spelbrädan
 {
     var PathStr=Snake.join(' ');
     PathStr+=' ';
@@ -85,18 +80,15 @@ function MoveFood() //placera maten slumpat inom svg-ramen
     Food.setAttribute("cy",FoodY);
 }
 
-function update()//så länge ormen lever och spelet inte är pausat så fortsätter uppdateringen
+function update()//så länge ormen lever så fortsätter uppdateringen av dess rörelse
 {
     if(!GameOver)
     {
-        if(!Paused)
-        {
             if((new Date()).getTime()-LastUpdate>50) //hur fort ormen åker, 50ms uppdatering
             {
                 Move();
                 LastUpdate=(new Date()).getTime();
             }
-        }
     }
     else
     {
@@ -106,7 +98,7 @@ function update()//så länge ormen lever och spelet inte är pausat så fortsä
     }
 }
 
-function Move()//här ändrar man de flesta av snakes attributer ex. längd, riktning och position
+function Move()//här ändrar man snakes position enligt dess riktning
 {
     CurrentDir=ThisDir;
 
@@ -115,7 +107,7 @@ function Move()//här ändrar man de flesta av snakes attributer ex. längd, rik
     {
         HeadY=HeadY-10;
         MyAngle=180;
-    } //asdf
+    }
     else if(ThisDir=='E')
     {
         HeadX=HeadX+10;
@@ -141,9 +133,9 @@ function Move()//här ändrar man de flesta av snakes attributer ex. längd, rik
     if(HeadX==FoodX && HeadY==FoodY) { //när huvudet kolliderar med maten så kommer snake bli längre
         MoveCount=MoveCount+10^4;
     }
-    else if(MoveCount<10^4) //10000 är en symbolisk siffra
+    else if(MoveCount<10^4) //10000 är en symbolisk siffra som ska motsvara en oändlighet
     {
-        Snake.pop();
+        Snake.pop(); //poppa ormens sista kroppsbit för att inte bli längre
         MoveCount++;
     }
     else
@@ -165,7 +157,7 @@ function Move()//här ändrar man de flesta av snakes attributer ex. längd, rik
 
     if(HeadX==FoodX && HeadY==FoodY) //öka poäng med 1 om huvudet har åkt in i en matbit
     {
-        MoveFood();
+        MoveFood(); //flytta matbiten
         Score++;
         ScoreBoard.nodeValue='Score: '+Score;
     }
@@ -193,29 +185,10 @@ function KeyPress(evt)//Hindrar snake från att kunna göra 180graders sväng
         evt.preventDefault();
         ThisDir='S';
     }
-    else if(evt.keyCode==80) // Pause
+
+    else if(evt.keyCode==13 && (Paused))  // 13=enter - starta nytt spel när splashskärmen är uppe
     {
         evt.preventDefault();
-        if(!Paused)
-        {
-            Paused=true;
-            ShowSplash('Paused','press enter to resume');
-        }
-        else
-        {
-            Paused=false;
-            Splash.setAttribute('visibility','hidden');
-        }
-    }
-    else if(evt.keyCode==13 && (GameOver || Paused))  // 13=enter - starta nytt spel eller forsätt där spelaren pausat
-    {
-        evt.preventDefault();
-        if(Paused)
-        {
-            Paused=false;
-            Splash.setAttribute('visibility','hidden');
-        }
-        else
             NewGame();
     }
 }
