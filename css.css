@@ -8,3 +8,8 @@ body { /*   standard sidformat för att undvika exempelvis onödiga margins och 
 
 }
 
+svg {
+    width: 960px;
+    height: 600px;
+}
+

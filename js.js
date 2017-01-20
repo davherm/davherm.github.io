@@ -1,5 +1,8 @@
 
 
+var svgNS = "http://www.w3.org/2000/svg";
+var xlinkNS = "http://www.w3.org/1999/xlink";
+
 var CurrentDir='S';
 var ThisDir='S';
 var LastUpdate=(new Date()).getTime();
@@ -21,7 +24,6 @@ var ScoreBoard;
 var Splash;
 var Text1;
 var Text2;
-
 
 function ShowSplash(T1,T2) //splashskärmen med varierande texter
 {
@@ -186,11 +188,12 @@ function KeyPress(evt)//Hindrar snake från att kunna göra 180graders sväng
         ThisDir='S';
     }
 
-    else if(evt.keyCode==13 && (Paused))  // 13=enter - starta nytt spel när splashskärmen är uppe
+    else if(evt.keyCode==13)  // 13=enter - starta nytt spel när splashskärmen är uppe
     {
         evt.preventDefault();
             NewGame();
     }
+    document.documentElement.addEventListener("keydown",KeyPress,false)();
 }
 
-document.documentElement.addEventListener("keydown",KeyPress,false)();
+
