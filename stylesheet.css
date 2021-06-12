@@ -1,0 +1,25 @@
+  
+/* font-style och margin som grund */
+* {font-family: Helvetica, Verdana, Roboto, sans-serif;  margin: 0 auto;}
+
+
+/* bakgrundsfärg och den stora containern för varje sida */
+body { background-color: #4488CC;}
+#page {text-align:center; width:640px; color:white; margin-top:30px;}
+
+
+/* hela headern och sociala mediernas länkar */
+header {background-color: #78BEE6; width:100%;  height:60px;  text-align:center;   -webkit-box-shadow: 0px 8px 8px 2px rgba(120,190,230,1); -moz-box-shadow: 0px 8px 8px 2px rgba(120,190,230,1);}
+header h1 {padding-top: 10px; color: #000000;}
+
+/* receptlistor */
+#pictures  {position: relative; width: 100%; position: center;}
+.picture { float:left; width: 110px; padding: 15px; margin: 10px; background-color: #3377BB; border-radius: 25%; font-size: 10px;}
+.picture img { width: 100px; height: 100px; border-radius: 25%;  }
+10+15+110+15+10 = 160px,	640/160 = 4
+
+
+/* diverse regler som jag inte kunde placera bättre utan konflikt */
+span{color:black;  font-weight:bold;}/* svart tjock text */
+a {text-decoration: none;}/* gula länkar utan decoration (inget lila när man tryckt på den) */
+h1 {font-size:32px;} /* stor rubrik */
