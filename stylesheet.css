@@ -20,6 +20,4 @@ header h1 {padding-top: 10px; color: #000000;}
 
 
 /* diverse regler som jag inte kunde placera bättre utan konflikt */
-span{color:black;  font-weight:bold;}/* svart tjock text */
-a {text-decoration: none;}/* gula länkar utan decoration (inget lila när man tryckt på den) */
 h1 {font-size:32px;} /* stor rubrik */
