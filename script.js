@@ -1,13 +1,17 @@
-var amountOfRecipes = 6;
+var amountOfRecipes = 8;
 
 
 window.onload = function () {
   document.getElementById("title").innerHTML = "Kokbok";
 
+  var database = loadFile("database.txt");
+
   for (var i=0; i<amountOfRecipes; i++) {
     var test = i;
     addRecipe(test);
   }//recipe loop
+
+
 
 
 }//window.onload
@@ -39,7 +43,16 @@ function addRecipe (test) {
   newDiv.appendChild(newRecipeImage);
 
   // add the newly created element and its content into the DOM
-  const lastRecipe = document.getElementById("lastRecipe");
-  const recipeList = document.getElementById("recipe_pictures");
-  recipeList.insertBefore(newDiv, lastRecipe);
+  document.getElementById("recipe_pictures").appendChild(newDiv);
+}
+
+function loadFile(filePath) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+          document.getElementById('title').innerHTML = xhr.responseText;
+      }
+  }
+  xhr.open('GET', filePath);
+  xhr.send();
 }
