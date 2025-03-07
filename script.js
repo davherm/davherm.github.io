@@ -1,58 +1,49 @@
-var amountOfRecipes = 8;
-
-
 window.onload = function () {
-  document.getElementById("title").innerHTML = "Kokbok";
-
-  var database = loadFile("database.txt");
-
-  for (var i=0; i<amountOfRecipes; i++) {
-    var test = i;
-    addRecipe(test);
-  }//recipe loop
-
-
-
-
+  document.getElementById("title").innerHTML = "Barmeny";
+  addCocktail("Daiquiri", "images/Daiquiri.jpg", "Daiquiri.jpg", "Simple rum drink");
+  addCocktail("Golden Apple", "images/Golden_Apple.jpg", "Golden_Apple.jpg", "Winter apples with golden sparkles");
+  addCocktail("Toreador", "images/Toreador.jpg", "Toreador.jpg", "Tequila & apricot brandy");
+  addCocktail("Pinklet", "images/Pinklet.jpg", "Pinklet.jpg", "Berries, gin & rhubarb");
 }//window.onload
 
-
-
-// CREATES RECIPE-DIV AS BELOW
+// CREATES Cocktail-DIV AS BELOW
 // ---------------------------
-// <div class="recipe">
+// <div class="Cocktail">
 // <h2>Exempeltext</h2>
 // <img src="images/exempelbild.jpg" alt="exempelbild"/>
 // </div>
-function addRecipe (test) {
-  // create a new recipe div
+function addCocktail (title, imagePath, imageName, description) {
+  // create a new Cocktail div
   const newDiv = document.createElement("div");
-  newDiv.setAttribute("class", "recipe")
+  newDiv.setAttribute("class", "cocktail")
 
   // add title and image
-  const newRecipeTitle = document.createElement("h2");
-  newRecipeTitle.setAttribute("class", "recipeTitle");
-  newRecipeTitle.innerHTML = test;
-  const newRecipeImage = document.createElement("img");
-  newRecipeImage.setAttribute("src", "images/exempelbild.jpg");
-  newRecipeImage.setAttribute("alt", "images/exempelbild.jpg");
-  newRecipeImage.setAttribute("class", "recipeImage");
+  const newCocktailTitle = document.createElement("h2");
+  newCocktailTitle.setAttribute("class", "CocktailTitle");
+  newCocktailTitle.innerHTML = title;
+
+  const cocktailImage = addCocktailImage(imagePath, imageName);
+  newDiv.appendChild(cocktailImage);
+
+  const newCocktailDescription = document.createElement("p");
+  newCocktailDescription.setAttribute("class", "cocktailDescription");
+  newCocktailDescription.innerHTML = description;
 
   // add the text node to the newly created div
-  newDiv.appendChild(newRecipeTitle);
-  newDiv.appendChild(newRecipeImage);
+  newDiv.appendChild(newCocktailTitle);
+  newDiv.appendChild(cocktailImage);
+  newDiv.appendChild(newCocktailDescription);
 
   // add the newly created element and its content into the DOM
-  document.getElementById("recipe_pictures").appendChild(newDiv);
+  document.getElementById("cocktail_pictures").appendChild(newDiv);
 }
 
-function loadFile(filePath) {
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-          document.getElementById('title').innerHTML = xhr.responseText;
-      }
-  }
-  xhr.open('GET', filePath);
-  xhr.send();
+function addCocktailImage(src, alt) {
+  // create a new image element
+  const newImage = document.createElement("img");
+  newImage.setAttribute("src", src);
+  newImage.setAttribute("alt", alt);
+  newImage.setAttribute("class", "cocktailImage");
+
+  return newImage; // return the created image element
 }

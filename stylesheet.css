@@ -13,6 +13,9 @@ header {background-color: #78BEE6; width:100%;  height:90px;  text-align:center;
 header h1 {padding-top: 4px; color: #000000; font-size:40px;}
 
 /* bildlistor */
-#recipe_pictures  {position: relative; width: 100%; position: center;}
-.recipe { float:left; width: 200px; height: 200px; padding: 8px; padding-bottom: 18px; margin: 12px; background-color: #3377BB; border-radius: 20%; font-size: 12px;}
-.recipeImage { width: 200px; height: 190px; border-radius: 20%;  }
+#cocktail_pictures  {position: relative; width: 100%; position: center;}
+.cocktail { float:left; width: 25%; height: 50%; padding: 6px; padding-bottom: 8px; margin: 12px; background-color: #3377BB; border-radius: 20%;}
+.cocktailTitle { font-size: 16px; text-align: center;}
+.cocktailImage { width: 200px; height: 250px; border-radius: 15%; border: 4px solid #1b5997;}
+.cocktailDescription { font-size: 12px; text-align: center;}
+
