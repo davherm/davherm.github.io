@@ -1,9 +1,19 @@
 window.onload = function () {
-  document.getElementById("title").innerHTML = "Barmeny";
+  document.getElementById("title").innerHTML = "Bar menu";
   addCocktail("Daiquiri", "images/Daiquiri.jpg", "Daiquiri.jpg", "Simple rum drink");
-  addCocktail("Golden Apple", "images/Golden_Apple.jpg", "Golden_Apple.jpg", "Winter apples with golden sparkles");
-  addCocktail("Toreador", "images/Toreador.jpg", "Toreador.jpg", "Tequila & apricot brandy");
-  addCocktail("Pinklet", "images/Pinklet.jpg", "Pinklet.jpg", "Berries, gin & rhubarb");
+  addCocktail("Whiskey Sour", "images/Whiskey_Sour.jpg", "Whiskey_Sour.jpg", "Simple whiskey drink");
+  addCocktail("Golden Apple", "images/Golden_Apple.jpg", "Golden_Apple.jpg", "Winter apples with Golden sparkles");
+  addCocktail("Toreador", "images/Toreador.jpg", "Toreador.jpg", "Tequila & Apricot brandy");
+  addCocktail("Pinklet", "images/Pinklet.jpg", "Pinklet.jpg", "Berries, Gin, & rhubarb");
+  addCocktail("Makarska", "images/Makarska.jpg", "Makarska.jpg", "Coconut, Orange, & Sprite");
+  addCocktail("Gradiška", "images/Gradiška.jpg", "Gradiška.jpg", "Coconut, Melon, & Sprite");
+  addCocktail("Badminton", "images/Badminton.jpg", "Badminton.jpg", "Gin, Melon, & Orange");
+  addCocktail("Bubblegum", "images/Bubblegum.jpg", "Bubblegum.jpg", "Watermelon, Vanilla, & Sprite");
+  addCocktail("Hemingway's Special", "images/Hemingways_Special.jpg", "Hemingways_Special.jpg", "Rum, Cherry, & Grape fruit");
+  addCocktail("Hips don't Lie", "images/Hips_dont_lie.jpg", "Hips_dont_lie.jpg", "Rum, Passion fruit, & Pineapple");
+  addCocktail("Banana'Rama", "images/BananaRama.jpg", "BananaRama.jpg", "Banana & Peach");
+  addCocktail("Orange Collins", "images/Orange_Collins.jpg", "Orange_Collins.jpg", "Gin, Orange, & Sprite");
+  addCocktail("Zoo Monkey", "images/Zoo_Monkey.jpg", "Zoo_Monkey.jpg", "Like a zoo monkey :-)");
 }//window.onload
 
 // CREATES Cocktail-DIV AS BELOW
@@ -19,7 +29,7 @@ function addCocktail (title, imagePath, imageName, description) {
 
   // add title and image
   const newCocktailTitle = document.createElement("h2");
-  newCocktailTitle.setAttribute("class", "CocktailTitle");
+  newCocktailTitle.setAttribute("class", "cocktailTitle");
   newCocktailTitle.innerHTML = title;
 
   const cocktailImage = addCocktailImage(imagePath, imageName);
