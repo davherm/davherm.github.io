@@ -9,7 +9,7 @@ window.onload = function () {
   addCocktail("Hemingway's Special", "Rum / Maraschino / Grape fruit");
   addCocktail("Makarska", "Malibu / Bols Blue / Sprite");
   addCocktail("Gradiška", "Malibu / Midori / Sprite");
-  addCocktail("Hips don't Lie", "Rum / Passion fruit / Pineapple");
+  addCocktail("Hips Don't Lie", "Rum / Passion fruit / Pineapple");
   addCocktail("Banana'Rama", "Banana / Peach / Pineapple");
   addCocktail("Zoo Monkey", "Like a zoo monkey :-)");
   addCocktail("Mango Habanero", "Mango & Habanero Liqueur");
