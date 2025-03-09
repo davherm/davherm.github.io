@@ -8,6 +8,10 @@ window.onload = function () {
   }
   else document.getElementById("title").innerHTML = "Something went wrong"; 
 
+  document.getElementById("title").addEventListener("click", function() {
+    window.location.href = "index.html"; // Navigate to cocktail.html
+  });
+
 }//window.onload
 
 function addCocktail (title, imagePath, imageName, description) {

@@ -7,7 +7,7 @@
 /* bakgrundsfärg och den stora containern för varje sida */
 /* body { background-color: #4488CC;} */
 body { background-color: #e0d5b4; color: #000000;}
-#page {text-align:center; width:960px; margin-top:36px;}
+#page {text-align:center; width:960px; margin-top:36px; padding-bottom: 240px;}
 
 /* hela headern och sociala mediernas länkar */
 header {background-color: #000029; width:100%;  height:25%;  text-align:center; box-shadow: rgba(120,190,230,1); -webkit-box-shadow: 0px 8px 8px 2px #000047;}
@@ -28,7 +28,7 @@ header h1 {color: #daa520c7; font-size:60pt; font-family: coolfont;}
     padding: 16px;
 }
 .cocktailTitle { font-size: 36pt; text-align: center; text-decoration: none; color: inherit;}
-.cocktailImage { width: 80%; height: 80%; margin: 4px; border-radius: 15%; box-shadow: rgba(120,190,230,1); -webkit-box-shadow: 0px 0px 4px 4px #6e4700b9;}
+.cocktailImage { width: 85%; height: 85%; margin: 4px; border-radius: 15%; box-shadow: rgba(120,190,230,1); -webkit-box-shadow: 0px 0px 4px 4px #6e4700b9;}
 .cocktailDescription { padding: 4px; font-size: 12pt; text-align: center;}
 
 #returnButton {
