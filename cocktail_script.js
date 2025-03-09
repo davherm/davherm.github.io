@@ -15,11 +15,6 @@ function addCocktail (title, imagePath, imageName, description) {
   const newDiv = document.createElement("div");
   newDiv.setAttribute("class", "cocktail")
 
-  // add title and image
-  const newCocktailTitle = document.createElement("h2");
-  newCocktailTitle.setAttribute("class", "cocktailTitle");
-  newCocktailTitle.innerHTML = title;
-
   const cocktailImage = addCocktailImage(imagePath, imageName);
   newDiv.appendChild(cocktailImage);
 
@@ -28,7 +23,6 @@ function addCocktail (title, imagePath, imageName, description) {
   newCocktailDescription.innerHTML = description;
 
   // add the text node to the newly created div
-  newDiv.appendChild(newCocktailTitle);
   newDiv.appendChild(cocktailImage);
   newDiv.appendChild(newCocktailDescription);
 
