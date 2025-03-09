@@ -1,5 +1,5 @@
 window.onload = function () {
-  document.getElementById("title").innerHTML = "Bar Menu"
+  document.getElementById("title").innerHTML = "Cocktail Menu"
   addCocktail("Daiquiri", "Simple rum drink");
   addCocktail("Whiskey Sour", "Simple whiskey drink");
   addCocktail("Golden Apple", "Winter apples with Golden sparkles");
