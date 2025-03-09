@@ -18,16 +18,16 @@ function addCocktail (title, imagePath, imageName, description) {
   const cocktailImage = addCocktailImage(imagePath, imageName);
   newDiv.appendChild(cocktailImage);
 
-  const newCocktailDescription = document.createElement("p");
-  newCocktailDescription.setAttribute("class", "cocktailDescription");
-  newCocktailDescription.innerHTML = description;
-
-  // add the text node to the newly created div
-  newDiv.appendChild(cocktailImage);
-  newDiv.appendChild(newCocktailDescription);
+  const returnButton = document.createElement("p");
+  returnButton.setAttribute("id", "returnButton");
+  returnButton.innerHTML = "Return to menu";
+  returnButton.addEventListener("click", function() {
+    window.location.href = "index.html"; // Navigate to cocktail.html
+  });
+  newDiv.appendChild(returnButton);
 
   // add the newly created element and its content into the DOM
-  document.getElementById("cocktail_pictures").appendChild(newDiv);
+  document.getElementById("cocktail_list").appendChild(newDiv);
 }
 
 function addCocktailImage(src, alt) {

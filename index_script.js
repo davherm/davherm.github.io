@@ -1,17 +1,18 @@
 window.onload = function () {
   document.getElementById("title").innerHTML = "Cocktail Menu"
-  addCocktail("Daiquiri", "Simple rum drink");
-  addCocktail("Whiskey Sour", "Simple whiskey drink");
-  addCocktail("Golden Apple", "Winter apples with Golden sparkles");
-  addCocktail("Toreador", "Tequila & Apricot brandy");
-  addCocktail("Pinklet", "Berries, Gin, & rhubarb");
-  addCocktail("Makarska", "Coconut, Orange, & Sprite");
-  addCocktail("Gradiška", "Coconut, Melon, & Sprite");
-  addCocktail("Hemingway's Special", "Rum, Cherry, & Grape fruit");
-  addCocktail("Hips don't Lie", "Rum, Passion fruit, & Pineapple");
-  addCocktail("Banana'Rama", "Banana & Peach");
-  addCocktail("Orange Collins", "Gin, Orange, & Sprite");
+  addCocktail("Daiquiri", "Plantation Rum");
+  addCocktail("Whiskey Sour", "Bourbon / Egg White / Angustura Bitter");
+  addCocktail("Margarita", "Tequila / Cointreau / Agave");
+  addCocktail("Toreador", "Tequila / Apricot brandy");
+  addCocktail("Pinklet", "Gin / Raspberry / Rhubarb");
+  addCocktail("Golden Apple", "Winter Apple / Golden Sparkles");
+  addCocktail("Hemingway's Special", "Rum / Maraschino / Grape fruit");
+  addCocktail("Makarska", "Malibu / Bols Blue / Sprite");
+  addCocktail("Gradiška", "Malibu / Midori / Sprite");
+  addCocktail("Hips don't Lie", "Rum / Passion fruit / Pineapple");
+  addCocktail("Banana'Rama", "Banana / Peach / Pineapple");
   addCocktail("Zoo Monkey", "Like a zoo monkey :-)");
+  addCocktail("Mango Habanero", "Mango & Habanero Liquer");
 }//window.onload
 
 function addCocktail (title, description) {

@@ -28,7 +28,19 @@ header h1 {color: #daa520c7; font-size:60pt; font-family: coolfont;}
     padding: 16px;
 }
 .cocktailTitle { font-size: 36pt; text-align: center; text-decoration: none; color: inherit;}
-.cocktailImage { width: 200px; height: 250px; margin: 4px; border-radius: 15%; border: 4px solid #19528b;}
+.cocktailImage { width: 80%; height: 80%; margin: 4px; border-radius: 15%; box-shadow: rgba(120,190,230,1); -webkit-box-shadow: 0px 0px 4px 4px #6e4700b9;}
 .cocktailDescription { padding: 4px; font-size: 12pt; text-align: center;}
+
+#returnButton {
+    color: #daa520c7;
+    font-size:36pt;
+    font-family: coolfont;
+    margin-top: 120px;
+    width: 60%;
+    background-color: #000029;
+    border-radius: 5px; 
+    box-shadow: rgba(120,190,230,1); 
+    -webkit-box-shadow: 0px 0px 2px 2px #6e4700b9;
+}
 
 /* #507552 grön */
