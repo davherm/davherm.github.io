@@ -5,11 +5,11 @@ window.onload = function () {
   addCocktail("Margarita", "Tequila / Cointreau / Agave");
   addCocktail("Toreador", "Tequila / Apricot brandy");
   addCocktail("Pinklet", "Gin / Raspberry / Rhubarb");
-  addCocktail("Golden Apple", "Winter Apple / Golden Sparkles");
-  addCocktail("Hemingway's Special", "Rum / Maraschino / Grape fruit");
+  //addCocktail("Golden Apple", "Winter Apple / Golden Sparkles");
+  //addCocktail("Hemingway's Special", "Rum / Maraschino / Grape fruit");
   addCocktail("Makarska", "Malibu / Bols Blue / Sprite");
   addCocktail("Gradiška", "Malibu / Midori / Sprite");
-  addCocktail("Hips Don't Lie", "Rum / Passion fruit / Pineapple");
+  //addCocktail("Hips Don't Lie", "Rum / Passion fruit / Pineapple");
   addCocktail("Banana'Rama", "Banana / Peach / Pineapple");
   addCocktail("Zoo Monkey", "Like a zoo monkey :-)");
   addCocktail("Mango Habanero", "Mango & Habanero Liqueur");
