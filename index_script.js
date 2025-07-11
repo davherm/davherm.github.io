@@ -13,7 +13,7 @@ window.onload = function () {
   addCocktail("Banana'Rama", "Banana / Peach / Pineapple");
   addCocktail("Zoo Monkey", "Like a zoo monkey :-)");
   addCocktail("Mango Habanero", "Mango & Habanero Liqueur");
-  addCocktail("Maraschino Liqueur", "Maraschino Cherriy Liqueur");
+  addCocktail("Maraschino Liqueur", "Maraschino Cherry Liqueur");
   addCocktail("Rakija", "Rakija / Apricot");
 }//window.onload
 
