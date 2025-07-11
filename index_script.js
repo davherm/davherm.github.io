@@ -14,7 +14,7 @@ window.onload = function () {
   addCocktail("Zoo Monkey", "Like a zoo monkey :-)");
   addCocktail("Mango Habanero", "Mango & Habanero Liqueur");
   addCocktail("Maraschino Liqueur", "Maraschino Cherry Liqueur");
-  addCocktail("Rakija", "Rakija / Apricot");
+  addCocktail("Rakija", "Apricot");
 }//window.onload
 
 function addCocktail (title, description) {
